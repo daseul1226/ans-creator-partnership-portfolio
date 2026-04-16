@@ -439,15 +439,16 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
 }
 
 .history-item {
   display: grid;
-  grid-template-columns: 12px 165px minmax(0, 1fr);
+  grid-template-columns: 14px 180px minmax(0, 1fr);
   align-items: center;
   gap: 18px;
   padding: 18px 0;
-  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
   position: relative;
 }
 
@@ -465,10 +466,14 @@ button {
   font-size: 0.96rem;
   color: #b44f4f;
   line-height: 1.45;
+  white-space: nowrap;
+  display: block;
 }
 
 .history-item span {
   line-height: 1.55;
+  display: block;
+  word-break: keep-all;
 }
 
 .section-heading {
@@ -1033,5 +1038,442 @@ button {
   .playbook-card,
   .closing-message {
     padding: 22px;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111111;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-noise,
+  .hero-spotlight,
+  .project-modal,
+  .case-shortcuts {
+    display: none !important;
+  }
+
+  [data-reveal],
+  [data-reveal="left"],
+  [data-reveal].is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .site-shell {
+    overflow: visible;
+  }
+
+  .site-header {
+    position: static;
+    max-width: none;
+    margin: 0 0 8mm;
+    padding: 0 0 5mm;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .brand-logo {
+    width: 92px;
+  }
+
+  .section {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero,
+  .profile-section,
+  .ready-section,
+  .roadmap-section {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .projects-section {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .profile-section,
+  .projects-section,
+  .ready-section,
+  .roadmap-section {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 0;
+  }
+
+  .hero-rule {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .hero-copy {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 8mm;
+    padding-top: 7mm;
+  }
+
+  .hero-main,
+  .hero-side {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .eyebrow,
+  .hero-kicker,
+  .section-kicker,
+  .metric-label,
+  .ready-label,
+  .section-index,
+  .roadmap-term {
+    font-size: 7.5pt;
+    letter-spacing: 0.08em;
+  }
+
+  .hero h1 {
+    max-width: none;
+    font-size: 28pt;
+    line-height: 1.02;
+  }
+
+  .hero-subtitle {
+    max-width: none;
+    margin-top: 5mm;
+    font-size: 10.2pt;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    margin-top: 5mm;
+    gap: 3mm;
+  }
+
+  .button {
+    min-height: 11mm;
+    padding: 0 6mm;
+    font-size: 9pt;
+  }
+
+  .metric-grid {
+    gap: 3mm;
+  }
+
+  .metric-card,
+  .profile-reference-card,
+  .case-card,
+  .ready-intro,
+  .ready-link-card,
+  .workflow-card,
+  .roadmap-card,
+  .playbook-card,
+  .closing-message {
+    box-shadow: none;
+    backdrop-filter: none;
+    background: #ffffff;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+  }
+
+  .metric-card {
+    padding: 4mm;
+    border-radius: 5mm;
+  }
+
+  .metric-card strong {
+    font-size: 10pt;
+  }
+
+  .metric-card p {
+    font-size: 9pt;
+  }
+
+  .profile-reference-card {
+    padding: 4.5mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .profile-top {
+    grid-template-columns: 46mm 1fr 61mm;
+    gap: 4mm;
+    padding-bottom: 4mm;
+  }
+
+  .profile-photo-wrap {
+    max-width: 42mm;
+    padding: 2mm;
+    border-radius: 5mm;
+  }
+
+  .profile-main h2 {
+    font-size: 20pt;
+  }
+
+  .profile-role,
+  .profile-name-en,
+  .profile-info-item p,
+  .history-item span {
+    font-size: 8.2pt;
+  }
+
+  .profile-info {
+    gap: 2mm;
+    width: 58mm;
+    margin-left: -1mm;
+  }
+
+  .profile-info-item {
+    padding-bottom: 2mm;
+  }
+
+  .profile-info-item h3,
+  .profile-history-title {
+    font-size: 8pt;
+    margin-bottom: 1.2mm;
+  }
+
+  .profile-history {
+    margin-top: 3.5mm;
+  }
+
+  .history-item {
+    grid-template-columns: 8px 40mm minmax(0, 1fr);
+    align-items: center;
+    gap: 4mm;
+    padding: 3.2mm 0;
+    min-height: 10mm;
+  }
+
+  .history-item::before {
+    grid-column: 1;
+    align-self: center;
+  }
+
+  .history-item strong {
+    grid-column: 2;
+    font-size: 7.4pt;
+    line-height: 1.3;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .history-item span {
+    grid-column: 3;
+    display: block;
+    line-height: 1.3;
+    white-space: normal;
+    font-size: 7.4pt;
+    word-break: keep-all;
+  }
+
+  .section-heading {
+    margin-bottom: 5mm;
+    padding-top: 5mm;
+    gap: 3mm;
+  }
+
+  .section-heading h2 {
+    font-size: 24pt;
+  }
+
+  .section-heading-meta {
+    gap: 3mm;
+  }
+
+  .section-index {
+    min-height: 9mm;
+    padding: 0 4mm;
+  }
+
+  .case-grid {
+    gap: 3mm;
+  }
+
+  .projects-section .case-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-before: auto;
+    page-break-before: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 4mm;
+  }
+
+  .projects-section .case-card:nth-of-type(2n + 1) {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .projects-section .case-card:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .case-layout,
+  .case-layout.reverse {
+    grid-template-columns: 72mm 1fr;
+    gap: 5mm;
+  }
+
+  .case-layout.reverse .case-media,
+  .case-layout.reverse .case-content {
+    order: initial;
+  }
+
+  .project-image-trigger {
+    padding: 2.5mm;
+    border-radius: 5mm;
+  }
+
+  .project-image-trigger img {
+    min-height: 54mm;
+    border-radius: 4mm;
+  }
+
+  .case-content {
+    padding: 0;
+  }
+
+  .case-content h3 {
+    margin: 2mm 0;
+    font-size: 14.5pt;
+  }
+
+  .case-meta,
+  .case-role,
+  .case-body p,
+  .case-tags span {
+    font-size: 7.6pt;
+  }
+
+  .case-badge {
+    font-size: 7.6pt;
+    padding: 1.5mm 2.5mm;
+  }
+
+  .case-tags {
+    margin-top: 2mm;
+    gap: 1.4mm;
+  }
+
+  .case-tags span {
+    padding: 1.2mm 2mm;
+  }
+
+  .ready-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+  }
+
+  .ready-intro,
+  .ready-link-card,
+  .workflow-card,
+  .roadmap-card,
+  .playbook-card,
+  .closing-message {
+    padding: 4mm;
+    border-radius: 5mm;
+  }
+
+  .ready-intro h3,
+  .ready-link-card h3,
+  .workflow-head h3,
+  .playbook-card h3,
+  .roadmap-card h3 {
+    font-size: 15pt;
+    margin-bottom: 2mm;
+  }
+
+  .ready-intro p,
+  .ready-link-card p,
+  .playbook-card p,
+  .roadmap-card p,
+  .workflow-step p {
+    font-size: 8.8pt;
+  }
+
+  .workflow-card {
+    margin-top: 4mm;
+  }
+
+  .workflow-head {
+    gap: 2mm;
+    margin-bottom: 3mm;
+  }
+
+  .workflow-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3mm;
+  }
+
+  .workflow-step {
+    min-height: 28mm;
+    padding: 3mm;
+  }
+
+  .workflow-step span,
+  .playbook-index {
+    width: 8mm;
+    height: 8mm;
+    font-size: 8pt;
+  }
+
+  .workflow-step p {
+    margin-top: 3mm;
+  }
+
+  .playbook-grid {
+    margin-top: 4mm;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3mm;
+  }
+
+  .playbook-card h3 {
+    margin-top: 3mm;
+    font-size: 12.5pt;
+  }
+
+  .roadmap-grid {
+    gap: 3mm;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .roadmap-card {
+    min-height: 44mm;
+  }
+
+  .closing-message {
+    margin-top: 4mm;
+  }
+
+  .closing-message p {
+    font-size: 14pt;
   }
 }
